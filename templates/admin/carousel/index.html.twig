@@ -23,8 +23,8 @@
                          alt="{{ carousel.path }}" title="{{ carousel.path }}">
                 </td>
                 <td>
-                    <a class="btn btn-dark btn mt-2" href="{{ path('carousel_show', {'id': carousel.id}) }}">Voir</a>
-                    <a class="btn btn-secondary btn mt-2" href="{{ path('carousel_edit', {'id': carousel.id}) }}">Modifier</a>
+                    <a class="btn btn-secondary btn mt-2"
+                       href="{{ path('carousel_edit', {'id': carousel.id}) }}">Modifier</a>
                     {{ include('admin/carousel/_delete_form.html.twig') }}
                 </td>
             </tr>
@@ -37,6 +37,6 @@
     </table>
     </div>
     <div class="text-center">
-        <a class="btn btn-primary btn mt-2 mb-5" href="#">Retour</a>
+        <a class="btn btn-primary btn mb-4" href="{{ path('admin_index') }}">Retour</a>
     </div>
 {% endblock %}

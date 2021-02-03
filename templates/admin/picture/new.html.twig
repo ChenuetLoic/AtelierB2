@@ -1,0 +1,15 @@
+{% extends 'layout_admin.html.twig' %}
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('admin') }}
+    {% endblock %}
+{% block title %}Nouvelle|Image{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1 class="text-center mt-4">Administration de l'images d'un projet</h1>
+    {{ include('admin/picture/_form.html.twig') }}
+    <div class="text-center">
+        <a class="btn btn-secondary btn" href="{{ path('picture_index') }}">Retour</a>
+    </div>
+</div>
+{% endblock %}

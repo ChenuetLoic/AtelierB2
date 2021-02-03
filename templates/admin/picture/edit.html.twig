@@ -1,0 +1,14 @@
+{% extends 'layout_admin.html.twig' %}
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('admin') }}
+    {% endblock %}
+{% block title %}Modification|Images{% endblock %}
+{% block body %}
+<div class="container">
+    <h1 class="title text-center">Modification des images</h1>
+    {{ include('admin/picture/_form.html.twig', {'button_label': 'Enregistrer'}) }}
+    <div class="text-center">
+        <a class="btn btn-primary btn" href="{{ path('picture_index') }}">Retour</a>
+    </div>
+</div>
+{% endblock %}

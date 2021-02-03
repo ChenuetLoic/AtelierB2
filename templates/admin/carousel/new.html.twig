@@ -1,11 +1,15 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}New Carousel{% endblock %}
+{% extends 'layout_admin.html.twig' %}
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('admin') }}
+    {% endblock %}
+{% block title %}Nouveau|Carousel{% endblock %}
 
 {% block body %}
-    <h1>Create new Carousel</h1>
-
-    {{ include('carousel/_form.html.twig') }}
-
-    <a href="{{ path('carousel_index') }}">back to list</a>
+<div class="container">
+    <h1 class="text-center mt-4">Ajouté une nouvelle images</h1>
+    {{ include('admin/carousel/_form.html.twig') }}
+    <div class="text-center">
+        <a class="btn btn-secondary btn" href="{{ path('carousel_index') }}">Retour</a>
+    </div>
+</div>
 {% endblock %}

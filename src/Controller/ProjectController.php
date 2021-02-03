@@ -2,28 +2,29 @@
 
 namespace App\Controller;
 
-use App\Entity\Projets;
-use App\Form\ProjetsType;
-use App\Repository\ProjetsRepository;
+use App\Entity\Project;
+use App\Form\ProjectType;
+use App\Repository\PictureRepository;
+use App\Repository\ProjectRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/admin")
+ * @Route("/admin/projets")
  */
-class ProjetsController extends AbstractController
+class ProjectController extends AbstractController
 {
     /**
-     * @Route("/projets", name="projets_index", methods={"GET"})
-     * @param ProjetsRepository $projetsRepository
+     * @Route("/", name="projets_index", methods={"GET"})
+     * @param ProjectRepository $projectRepository
      * @return Response
      */
-    public function index(ProjetsRepository $projetsRepository): Response
+    public function index(ProjectRepository $projectRepository): Response
     {
         return $this->render('admin/projets/index.html.twig', [
-            'projets' => $projetsRepository->findAll(),
+            'projects' => $projectRepository->findAll(),
         ]);
     }
 
@@ -34,8 +35,8 @@ class ProjetsController extends AbstractController
      */
     public function new(Request $request): Response
     {
-        $projet = new Projets();
-        $form = $this->createForm(ProjetsType::class, $projet);
+        $projet = new Project();
+        $form = $this->createForm(ProjectType::class, $projet);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -53,26 +54,14 @@ class ProjetsController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="projets_show", methods={"GET"})
-     * @param Projets $projet
-     * @return Response
-     */
-    public function show(Projets $projet): Response
-    {
-        return $this->render('admin/projets/show.html.twig', [
-            'projet' => $projet,
-        ]);
-    }
-
-    /**
      * @Route("/{id}/modifier", name="projets_edit", methods={"GET","POST"})
      * @param Request $request
-     * @param Projets $projet
+     * @param Project $projet
      * @return Response
      */
-    public function edit(Request $request, Projets $projet): Response
+    public function edit(Request $request, Project $projet): Response
     {
-        $form = $this->createForm(ProjetsType::class, $projet);
+        $form = $this->createForm(ProjectType::class, $projet);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -90,10 +79,10 @@ class ProjetsController extends AbstractController
     /**
      * @Route("/{id}", name="projets_delete", methods={"DELETE"})
      * @param Request $request
-     * @param Projets $projet
+     * @param Project $projet
      * @return Response
      */
-    public function delete(Request $request, Projets $projet): Response
+    public function delete(Request $request, Project $projet): Response
     {
         if ($this->isCsrfTokenValid('delete'.$projet->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();

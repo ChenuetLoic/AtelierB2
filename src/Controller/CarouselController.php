@@ -11,12 +11,12 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/admin")
+ * @Route("/admin/carrousel")
  */
 class CarouselController extends AbstractController
 {
     /**
-     * @Route("/carrousel", name="carousel_index", methods={"GET"})
+     * @Route("/", name="carousel_index", methods={"GET"})
      * @param CarouselRepository $carouselRepository
      * @return Response
      */
@@ -49,18 +49,6 @@ class CarouselController extends AbstractController
         return $this->render('admin/carousel/new.html.twig', [
             'carousel' => $carousel,
             'form' => $form->createView(),
-        ]);
-    }
-
-    /**
-     * @Route("/{id}", name="carousel_show", methods={"GET"})
-     * @param Carousel $carousel
-     * @return Response
-     */
-    public function show(Carousel $carousel): Response
-    {
-        return $this->render('admin/carousel/show.html.twig', [
-            'carousel' => $carousel,
         ]);
     }
 

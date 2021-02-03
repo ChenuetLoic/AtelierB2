@@ -24,7 +24,8 @@ label {
 }
 
 .idImage {
-    width: 300px;
+    max-width: 300px;
+    max-height: 300px;
 }
 
 .custom-file-input ~ .custom-file-label:lang(fr)::after {
