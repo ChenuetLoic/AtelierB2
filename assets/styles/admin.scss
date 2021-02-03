@@ -1,0 +1,33 @@
+@import "app.scss";
+
+.title {
+    padding-top: $spacing-4;
+}
+
+.icon {
+    justify-content: center;
+    max-width: 150px;
+}
+
+.vich-file {
+    & .form-group{
+        display: none;
+    }
+
+    & a {
+        display: none;
+    }
+}
+
+label {
+    color: $dark;
+}
+
+.idImage {
+    max-width: 300px;
+    max-height: 300px;
+}
+
+.custom-file-input ~ .custom-file-label:lang(fr)::after {
+    content: "Parcourir...";
+}

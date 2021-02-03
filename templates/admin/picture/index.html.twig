@@ -1,0 +1,44 @@
+{% extends 'layout_admin.html.twig' %}
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('admin') }}
+    {% endblock %}
+{% block title %}Administration|Image{% endblock %}
+
+{% block body %}
+    <h1 class="title text-center">Administration image de projet</h1>
+<div class="container">
+    <a class="btn btn-success mb-2" href="{{ path('picture_new') }}">Ajouter une nouvelle photo</a>
+    <table class="table text-dark text-center">
+        <thead class="bg-primary">
+            <tr>
+                <th>Projet</th>
+                <th>Images</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for picture in pictures %}
+            <tr>
+                <td>{{ picture.project.title }}</td>
+                <td>
+                    <img class="idImage" src="{{ asset('build/images/' ~ picture.path) }}"
+                         alt="{{ picture.path }}" title="{{ picture.path }}">
+                    </td>
+                <td>
+                    <a class="btn btn-secondary btn mt-2"
+                       href="{{ path('picture_edit', {'id': picture.id}) }}">Modifier</a>
+                    {{ include('admin/picture/_delete_form.html.twig') }}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td class="text-danger" colspan="8">Aucun résultat trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+    <div class="text-center">
+        <a class="btn btn-primary btn mb-4" href="{{ path('admin_index') }}">Retour</a>
+    </div>
+{% endblock %}

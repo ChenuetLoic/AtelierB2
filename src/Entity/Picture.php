@@ -2,7 +2,7 @@
 
 namespace App\Entity;
 
-use App\Repository\CarouselRepository;
+use App\Repository\PictureRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\HttpFoundation\File\File;
@@ -12,10 +12,10 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use DateTime;
 
 /**
- * @ORM\Entity(repositoryClass=CarouselRepository::class)
+ * @ORM\Entity(repositoryClass=PictureRepository::class)
  * @Vich\Uploadable
  */
-class Carousel
+class Picture
 {
     /**
      * @ORM\Id
@@ -25,9 +25,14 @@ class Carousel
     private ?int $id;
 
     /**
-     * @ORM\Column(type="text", nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private ?string $path = '';
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Project::class, inversedBy="pictures")
+     */
+    private ?Project $project;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
@@ -43,7 +48,7 @@ class Carousel
      */
     private ?File $pathFile = null;
 
-    public function setPathFile(?File $image = null): Carousel
+    public function setPathFile(?File $image = null): Picture
     {
         $this->pathFile = $image;
         if ($image) {
@@ -82,6 +87,18 @@ class Carousel
     public function setPath(?string $path): self
     {
         $this->path = $path;
+
+        return $this;
+    }
+
+    public function getProject(): ?Project
+    {
+        return $this->project;
+    }
+
+    public function setProject(?Project $project): self
+    {
+        $this->project = $project;
 
         return $this;
     }
