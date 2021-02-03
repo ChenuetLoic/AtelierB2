@@ -1,0 +1,95 @@
+@import 'variables.scss';
+@import "~bootstrap/scss/bootstrap";
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    color: $dark;
+}
+
+h1 {
+    padding: $spacing-4 0;
+    font-size: $h1-font-size;
+}
+
+h2 {
+    padding: $spacing-2 0;
+    font-size: $h2-font-size;
+}
+
+h3 {
+    font-size: $h3-font-size;
+}
+
+h4 {
+    font-size: $h4-font-size;
+}
+
+.imageCarousel{
+    object-fit: cover;
+}
+
+.textTitle {
+    margin-top: $spacing-5;
+}
+
+.paragraph {
+    color: $text-color;
+    font-size: $text-font-size*1.25;
+    margin: $spacing-4 $spacing-3 $spacing-5;
+}
+
+.paragraph:empty {
+    display: none;
+}
+
+.carouselOpinion {
+    background-color: $background-opinion;
+    min-height: 350px;
+}
+
+.walkingPicture {
+    position: relative;
+    object-fit: cover;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+}
+
+.portrait {
+    border-radius: $border-radius;
+    filter: brightness(60%);
+    max-height: 600px;
+    margin: $spacing;
+}
+
+#calendar {
+    width: $width-calendar;
+    height: $height-calendar;
+}
+
+.custom-file-input ~ .custom-file-label:lang(fr)::after {
+    content: "Parcourir...";
+}
+
+.addFlash {
+    margin-top: $addFlash;
+    text-align: center;
+}
+
+.page-footer a {
+    color: $light;
+}
+
+.page-footer a:hover {
+    text-decoration: none;
+    opacity: 0.80;
+}
+
+hr {
+    margin: 0 15%;
+    border: none;
+    border-bottom: 1px solid $light;
+}

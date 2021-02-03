@@ -1,15 +1,36 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/png" href="{{ asset('build/images/favicon.jpg') }}" />
+    <link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.min.css"/>
     <title>{% block title %}Welcome!{% endblock %}</title>
-    {% block stylesheets %}{% endblock %}
-
-    {% block javascripts %}{% endblock %}
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
 </head>
 <body>
+{% block header %}{% endblock %}
+{% block carousel %}{% endblock %}
+<header>
+    {% block flash %}
+        {% for category, messages in app.flashes %}
+            {% for message in messages %}
+                <div class="addFlash alert alert-{{ category }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+    {% endblock %}
+</header>
 {% block body %}{% endblock %}
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aperiam atque deserunt dolorum enim, excepturi id
-nesciunt nobis nostrum perspiciatis quaerat quas quis, ratione repellendus rerum ut veniam voluptate, voluptatum.
+{% block map %}{% endblock %}
+
+{% block footer %}{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+{% endblock %}
 </body>
 </html>
