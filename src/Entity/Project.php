@@ -21,11 +21,13 @@ class Project
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(max="255")
      */
     private ?string $title;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
+     * @Assert\Type("DateTime")
      */
     private ?\DateTimeInterface $date;
 

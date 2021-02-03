@@ -31,6 +31,7 @@ class Carousel
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
+     * @Assert\Type("DateTime")
      */
     private ?\DateTimeInterface $updatedAt;
 
@@ -39,7 +40,7 @@ class Carousel
      * @var File|null
      * @Assert\File(
      *     maxSize="1000000",
-     *     mimeTypes = {"image/png", "image/jpeg", "image/jpg", "image/gif",})
+     *     mimeTypes = {"image/png", "image/jpeg", "image/jpg", "image/gif", "image/webp"})
      */
     private ?File $pathFile = null;
 
