@@ -1,0 +1,15 @@
+{% extends 'layout_admin.html.twig' %}
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('admin') }}
+    {% endblock %}
+{% block title %}Modification|Carrousel{% endblock %}
+
+{% block body %}
+    <div class="container">
+    <h1 class="title text-center">Modification du Carrousel</h1>
+        {{ include('admin/carousel/_form.html.twig', {'button_label': 'Enregistrer'}) }}
+    </div>
+    <div class="text-center">
+        <a class="btn btn-secondary btn" href="{{ path('carousel_index') }}">Retour à la liste</a>
+    </div>
+{% endblock %}
