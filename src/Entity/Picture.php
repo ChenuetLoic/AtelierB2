@@ -26,6 +26,7 @@ class Picture
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     *  @Assert\Length(max="255")
      */
     private ?string $path = '';
 
@@ -36,6 +37,7 @@ class Picture
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
+     * @Assert\Type("DateTime")
      */
     private ?\DateTimeInterface $updatedAt;
 
@@ -44,7 +46,7 @@ class Picture
      * @var File|null
      * @Assert\File(
      *     maxSize="1000000",
-     *     mimeTypes = {"image/png", "image/jpeg", "image/jpg", "image/gif",})
+     *     mimeTypes = {"image/png", "image/jpeg", "image/jpg", "image/gif", "image/webp"})
      */
     private ?File $pathFile = null;
 
