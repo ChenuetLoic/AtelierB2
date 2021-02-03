@@ -54,7 +54,7 @@ class PictureController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/modifier", name="picture_edit", methods={"GET","POST"})
+     * @Route("/{id}/edit", name="picture_edit", methods={"GET","POST"})
      * @param Request $request
      * @param Picture $picture
      * @return Response

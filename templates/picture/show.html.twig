@@ -1,0 +1,44 @@
+{% extends 'layout.html.twig' %}
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+{% block carousel %}{% endblock %}
+{% block title %}Projet{% endblock %}
+
+{% block body %}
+<section class="bg-primary mb-0">
+    <h1 class="text-center mb-4">{{ projects.title }}</h1>
+        <div class="container pt-0">
+            <section id="carousel-images" class="carousel slide pb-0" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carousel-images" data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel-images" data-slide-to="1"></li>
+                    <li data-target="#carousel-images" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    {% set picture = "" %}
+                    {% for picture in pictures %}
+                        <div class="carousel-item  {% if loop.index0 == 0 %} active {% endif %}">
+                            <img class="imageCarouselProjet vh-100 w-100" src="{{ asset('build/images/'~picture.path) }}"
+                                 alt="{{ picture.path }}">
+                        </div>
+                    {% endfor %}
+                </div>
+                <a class="carousel-control-prev" href="#carousel-images" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Précèdent</span>
+                </a>
+                <a class="carousel-control-next" href="#carousel-images" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Suivant</span>
+                </a>
+            </section>
+        </div>
+        <div class="container mt-5 pb-5">
+            <div class="row flex-row">
+                <p class="lead">{{ projects.date|format_datetime('full', 'none' , locale='fr')}}</p>
+                <p class="paragraph mb-0">{{ projects.description|nl2br }}</p>
+            </div>
+        </div>
+    </section>
+{% endblock %}

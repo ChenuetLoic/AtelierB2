@@ -1,1 +1,34 @@
 {% extends 'layout.html.twig' %}
+{% block title %}Accueil{% endblock %}
+{% block body %}
+<div class="container-fluid bg-primary">
+    <div class="row justify-content-center pt-5">
+        <img class="m-4" src="{{ asset('build/images/badge_46_8@2x.png') }}" alt="">
+        <img class="m-4" src="{{ asset('build/images/badge_47_8@2x.png') }}" alt="">
+        <img class="m-4" src="{{ asset('build/images/badge_48_8@2x.png') }}" alt="">
+        <img class="m-4" src="{{ asset('build/images/badge_49_8@2x.png') }}" alt="">
+        <img class="m-4" src="{{ asset('build/images/badge_54_8@2x.png') }}" alt="">
+        <img class="m-4" src="{{ asset('build/images/badge_55_8@2x.png') }}" alt="">
+    </div>
+    <h2 class="text-center m-2">Projets du moment</h2>
+
+
+    <div class="row justify-content-around py-4">
+        {% for projet in projets %}
+        <div class="col-lg-4 col-sm-4 align-self-center text-center">
+            <img class="imageProjet" src="{{ asset('uploads/path/'~projet.pathHome) }}" alt="">
+        </div>
+            <div class="col-lg-5 col-sm-6 align-self-center flex-column">
+                <p class="lead">{{ projet.date|format_datetime('full', 'none' , locale='fr')}}</p>
+                <h2 class="text-center">{{ projet.title }}</h2>
+                <p class="paragraph">{{ projet.description|nl2br }}</p>
+                    <div class="text-center">
+                        <a class="btn btn-secondary btn my-4" href="{{ path('picture_show', {'id' : projet.id}) }}"
+                           target="_blank">Voir le projet</a>
+                    </div>
+            </div>
+        {% endfor %}
+
+    </div>
+</div>
+{% endblock %}
