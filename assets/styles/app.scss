@@ -7,7 +7,6 @@
 
 body {
     margin: 0;
-    color: $dark;
 }
 
 h1 {
@@ -32,44 +31,6 @@ h4 {
     object-fit: cover;
 }
 
-.textTitle {
-    margin-top: $spacing-5;
-}
-
-.paragraph {
-    color: $text-color;
-    font-size: $text-font-size*1.25;
-    margin: $spacing-4 $spacing-3 $spacing-5;
-}
-
-.paragraph:empty {
-    display: none;
-}
-
-.carouselOpinion {
-    background-color: $background-opinion;
-    min-height: 350px;
-}
-
-.walkingPicture {
-    position: relative;
-    object-fit: cover;
-    border-radius: $border-radius;
-    box-shadow: $box-shadow;
-}
-
-.portrait {
-    border-radius: $border-radius;
-    filter: brightness(60%);
-    max-height: 600px;
-    margin: $spacing;
-}
-
-#calendar {
-    width: $width-calendar;
-    height: $height-calendar;
-}
-
 .custom-file-input ~ .custom-file-label:lang(fr)::after {
     content: "Parcourir...";
 }
@@ -77,10 +38,6 @@ h4 {
 .addFlash {
     margin-top: $addFlash;
     text-align: center;
-}
-
-.page-footer a {
-    color: $light;
 }
 
 .page-footer a:hover {
