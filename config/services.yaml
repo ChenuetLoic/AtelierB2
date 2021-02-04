@@ -5,6 +5,7 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     upload_directory_path: '%kernel.project_dir%/public/uploads/path/'
+    upload_directory_picture: '%kernel.project_dir%/public/uploads/picture/'
 
     mailer_from: '%env(resolve:MAILER_FROM_ADDRESS)%'
     mailer_to: '%env(resolve:MAILER_TO_ADDRESS)%'

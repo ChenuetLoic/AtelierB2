@@ -13,18 +13,34 @@ Encore
     .setPublicPath('/build')
     // only needed for CDN's or sub-directory deploy
     //.setManifestKeyPrefix('build/')
-    .copyFiles({
-        from: './assets/images',
-
-        // optional target path, relative to the output dir
-        // to: 'images/[path][name].[ext]',
-
-        // if versioning is enabled, add the file hash too
-        to: 'images/[path][name].[hash:8].[ext]',
-
-        // only copy files matching this pattern
-        // pattern: /\.(png|jpg|jpeg)$/
-    })
+    .copyFiles([
+        {
+            from: './node_modules/ckeditor/',
+            to: 'ckeditor/[path][name].[ext]',
+            pattern: /\.(js|css)$/,
+            includeSubdirectories: false,
+        },
+        {
+            from: './node_modules/ckeditor/adapters',
+            to: 'ckeditor/adapters/[path][name].[ext]',
+        },
+        {
+            from: './node_modules/ckeditor/lang',
+            to: 'ckeditor/lang/[path][name].[ext]',
+        },
+        {
+            from: './node_modules/ckeditor/plugins',
+            to: 'ckeditor/plugins/[path][name].[ext]',
+        },
+        {
+            from: './node_modules/ckeditor/skins',
+            to: 'ckeditor/skins/[path][name].[ext]',
+        },
+        {
+            from: './assets/images',
+            to: 'images/[path][name].[hash:8].[ext]',
+        },
+    ])
     /*
      * ENTRY CONFIG
      *

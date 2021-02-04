@@ -4,3 +4,6 @@ vich_uploader:
         path_file:
             uri_prefix: /images/path
             upload_destination: '%upload_directory_path%'
+        picture_file:
+            uri_prefix: /images/picture
+            upload_destination: '%upload_directory_picture%'

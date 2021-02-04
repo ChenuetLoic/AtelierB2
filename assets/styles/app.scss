@@ -44,7 +44,7 @@ h4 {
 .imageProjet {
     border-radius: $border-radius;
     filter: brightness(60%);
-    width: 40vw;
+    max-width: 40vw;
     margin: $spacing;
 }
 

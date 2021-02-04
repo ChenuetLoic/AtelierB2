@@ -4,19 +4,36 @@ namespace App\Form;
 
 use App\Entity\Project;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Vich\UploaderBundle\Form\Type\VichFileType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 
 class ProjectType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title')
-            ->add('date')
-            ->add('description')
+            ->add('title', TextType::class, [
+                'label' => 'Titre',
+            ])
+            ->add('date', DateTimeType::class, [
+                'date_widget' => 'single_text',
+                'time_widget' => 'single_text',
+                'label' => 'Date'
+            ])
+            ->add('descriptionHome', TextType::class, [
+                'label' => "Description de l'accueil",
+            ])
+            ->add('description', CKEditorType::class, [
+                'label' => 'Description',
+                'attr' => [
+                    'placeholder' => 'Votre texte',
+                ],
+            ])
             ->add('pathFile', VichFileType::class, [
                 'required' => false,
                 'allow_delete' => true, // not mandatory, default is true
