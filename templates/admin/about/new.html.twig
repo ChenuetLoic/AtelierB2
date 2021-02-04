@@ -1,0 +1,15 @@
+{% extends 'layout_admin.html.twig' %}
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('admin') }}
+    {% endblock %}
+{% block title %}Ajouter|A propos{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1 class="text-center mt-4">Ajouter un nouveau texte</h1>
+    {{ include('admin/about/_form.html.twig') }}
+    <div class="text-center">
+        <a class="btn btn-secondary btn" href="{{ path('about_admin') }}">Retour</a>
+    </div>
+</div>
+{% endblock %}

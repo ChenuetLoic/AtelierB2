@@ -26,7 +26,7 @@ class ProjectType extends AbstractType
                 'label' => 'Date'
             ])
             ->add('descriptionHome', TextType::class, [
-                'label' => "Description de l'accueil",
+                'label' => "Description sur la page d'accueil",
             ])
             ->add('description', CKEditorType::class, [
                 'label' => 'Description',

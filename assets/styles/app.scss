@@ -10,21 +10,30 @@ body {
 }
 
 h1 {
-    padding: $spacing-5 0 0 0;
+    padding-top: $spacing-5;
     font-size: $h1-font-size;
+    font-family: $font-title;
 }
 
 h2 {
-    padding: $spacing-2 0;
+    padding: $spacing-2 0 0 0;
     font-size: $h2-font-size;
+    font-family: $font-title;
 }
 
 h3 {
     font-size: $h3-font-size;
+    font-family: $font-title;
 }
 
 h4 {
     font-size: $h4-font-size;
+    font-family: $font-title;
+}
+
+p {
+    margin-bottom: 0;
+    font-family: $font-text;
 }
 
 .imageCarousel{
@@ -34,6 +43,10 @@ h4 {
 
 .imageCarouselProjet {
     height: 20vh;
+}
+
+.imagePrestation {
+    height: 50vh;
 }
 
 .imagePortfolio {
@@ -51,7 +64,7 @@ h4 {
 
 .paragraph {
     font-size: $text-font-size*1.25;
-    font-family: $font-title;
+    font-family: $font-text;
 }
 
 .custom-file-input ~ .custom-file-label:lang(fr)::after {
@@ -148,6 +161,7 @@ hr {
     -webkit-transform: scale(1);
     -ms-transform: scale(1);
     transform: scale(1);
+}
 
 .confirmEmail {
     padding-top: $spacing-5;

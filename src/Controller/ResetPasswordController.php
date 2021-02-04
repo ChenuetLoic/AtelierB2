@@ -25,7 +25,7 @@ class ResetPasswordController extends AbstractController
 {
     use ResetPasswordControllerTrait;
 
-    private $resetPasswordHelper;
+    private ResetPasswordHelperInterface $resetPasswordHelper;
 
     public function __construct(ResetPasswordHelperInterface $resetPasswordHelper)
     {
@@ -36,6 +36,9 @@ class ResetPasswordController extends AbstractController
      * Display & process form to request a password reset.
      *
      * @Route("", name="app_forgot_password_request")
+     * @param Request $request
+     * @param MailerInterface $mailer
+     * @return Response
      */
     public function request(Request $request, MailerInterface $mailer): Response
     {
@@ -75,6 +78,10 @@ class ResetPasswordController extends AbstractController
      * Validates and process the reset URL that the user clicked in their email.
      *
      * @Route("/reset/{token}", name="app_reset_password")
+     * @param Request $request
+     * @param UserPasswordEncoderInterface $passwordEncoder
+     * @param string|null $token
+     * @return Response
      */
     public function reset(Request $request, UserPasswordEncoderInterface $passwordEncoder, string $token = null): Response
     {
@@ -88,14 +95,14 @@ class ResetPasswordController extends AbstractController
 
         $token = $this->getTokenFromSession();
         if (null === $token) {
-            throw $this->createNotFoundException('No reset password token found in the URL or in the session.');
+            throw $this->createNotFoundException("Aucun jeton de réinitialisation du mot de passe trouvé dans l'URL ou dans la session");
         }
 
         try {
             $user = $this->resetPasswordHelper->validateTokenAndFetchUser($token);
         } catch (ResetPasswordExceptionInterface $e) {
             $this->addFlash('reset_password_error', sprintf(
-                'There was a problem validating your reset request - %s',
+                'Un problème est survenu lors de la validation de votre demande de réinitialisation - %s',
                 $e->getReason()
             ));
 
@@ -157,9 +164,9 @@ class ResetPasswordController extends AbstractController
         }
 
         $email = (new TemplatedEmail())
-            ->from(new Address('admin@monsite.com', 'Atelier B2'))
+            ->from(new Address($this->getParameter('mailer_from')))
             ->to($user->getEmail())
-            ->subject('Your password reset request')
+            ->subject('Votre demande de réinitialisation de mot de passe')
             ->htmlTemplate('reset_password/email.html.twig')
             ->context([
                 'resetToken' => $resetToken,
