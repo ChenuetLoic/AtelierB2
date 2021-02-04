@@ -8,30 +8,43 @@
 
         <div class="container-fluid pb-4 text-center">
             <div class="row justify-content-center">
-                <div class="card my-2 d-flex align-items-center mx-4">
-                    <img class="icon card-img-top pt-3" src="{{ asset('build/images/carrouselAdmin.png') }}" alt="Logo administrateur">
+
+                <div class="cardAdmin card my-2 d-flex align-items-center mx-4">
+                    <img class="icon card-img-top pt-3" src="{{ asset('build/images/carrouselAdmin.png') }}"
+                         alt="Logo administrateur">
                     <div class="card-body">
                         <h2 class="titreH2">Carrousel</h2>
-                        <a href="{{ path('carousel_index') }}" class="btn btn-dark">Administrer</a>
+                        <a href="{{ path('carousel_index') }}" class="btn btn-warning">Administrer</a>
                     </div>
                 </div>
 
-                <div class="card my-2 d-flex align-items-center mx-4">
-                    <img class="icon card-img-top pt-3" src="{{ asset('build/images/calendar.png') }}" alt="Logo administrateur">
+                <div class="cardAdmin card my-2 d-flex align-items-center mx-4">
+                    <img class="icon card-img-top pt-3" src="{{ asset('build/images/calendar.png') }}"
+                         alt="Logo administrateur">
                     <div class="card-body">
                         <h2 class="titreH2">Projet</h2>
-                        <a href="{{ path('projets_index') }}" class="btn btn-dark">Administrer</a>
+                        <a href="{{ path('projets_index') }}" class="btn btn-warning">Administrer</a>
                     </div>
                 </div>
 
-                <div class="card my-2 d-flex align-items-center mx-4">
-                    <img class="icon card-img-top pt-3" src="{{ asset('build/images/calendar.png') }}" alt="Logo administrateur">
+                <div class="cardAdmin card my-2 d-flex align-items-center mx-4">
+                    <img class="icon card-img-top pt-3" src="{{ asset('build/images/calendar.png') }}"
+                         alt="Logo administrateur">
                     <div class="card-body">
                         <h2 class="titreH2">Images des projets</h2>
-                        <a href="{{ path('picture_index') }}" class="btn btn-dark">Administrer</a>
+                        <a href="{{ path('picture_index') }}" class="btn btn-warning">Administrer</a>
                     </div>
                 </div>
+
+                <div class="cardAdmin card my-2 d-flex align-items-center mx-4">
+                    <img class="icon card-img-top pt-3" src="{{ asset('build/images/calendar.png') }}"
+                         alt="Logo administrateur">
+                    <div class="card-body">
+                        <h2 class="titreH2">Prestation</h2>
+                        <a href="{{ path('prestation_admin') }}" class="btn btn-warning">Administrer</a>
+                    </div>
+                </div>
+
             </div>
         </div>
-
 {% endblock %}

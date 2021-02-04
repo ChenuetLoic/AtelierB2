@@ -2,14 +2,15 @@
     {% block stylesheets %}
         {{ encore_entry_link_tags('admin') }}
     {% endblock %}
-{% block title %}Nouvelle|Image{% endblock %}
+{% block title %}Ajouter|Prestation{% endblock %}
 
 {% block body %}
 <div class="container">
-    <h1 class="text-center mt-4">Ajouté des images à un projet</h1>
+    <h1 class="text-center mt-4">Create new Prestation</h1>
+    {{ include('admin/prestation/_form.html.twig') }}
     {{ include('admin/picture/_form.html.twig') }}
     <div class="text-center">
-        <a class="btn btn-secondary btn" href="{{ path('picture_index') }}">Retour</a>
+        <a class="btn btn-secondary btn"href="{{ path('prestation_admin') }}">Retour</a>
     </div>
 </div>
 {% endblock %}

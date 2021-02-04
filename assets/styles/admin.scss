@@ -31,3 +31,7 @@ label {
 .custom-file-input ~ .custom-file-label:lang(fr)::after {
     content: "Parcourir...";
 }
+
+.cardAdmin {
+    min-width: 300px;
+}

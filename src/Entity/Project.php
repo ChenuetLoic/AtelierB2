@@ -67,6 +67,11 @@ class Project
      */
     private ?File $pathFile = null;
 
+    /**
+     * @ORM\Column(type="text")
+     */
+    private ?string $descriptionHome;
+
     public function setPathFile(?File $image = null): Project
     {
         $this->pathFile = $image;
@@ -177,6 +182,18 @@ class Project
     public function setPathHome(?string $pathHome): self
     {
         $this->pathHome = $pathHome;
+
+        return $this;
+    }
+
+    public function getDescriptionHome(): ?string
+    {
+        return $this->descriptionHome;
+    }
+
+    public function setDescriptionHome(?string $descriptionHome): self
+    {
+        $this->descriptionHome = $descriptionHome;
 
         return $this;
     }

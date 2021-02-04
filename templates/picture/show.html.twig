@@ -37,7 +37,7 @@
         <div class="container mt-5 pb-5">
             <div class="row flex-row">
                 <p class="lead">{{ projects.date|format_datetime('full', 'none' , locale='fr')}}</p>
-                <p class="paragraph mb-0">{{ projects.description|nl2br }}</p>
+                <p class="paragraph mb-0">{{ projects.description| raw  }}</p>
             </div>
         </div>
     </section>
