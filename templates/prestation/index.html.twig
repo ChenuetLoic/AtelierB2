@@ -2,10 +2,15 @@
 {% block carousel %}{% endblock %}
 {% block title %}Portfolio{% endblock %}
 {% block body %}
-<section class="bg-primary">
+<section class="bg-primary ">
+    <div class="container">
     <h1 class="text-center">Prestations</h1>
      {% for prestation in prestations %}
-        <p>{{ prestation.prestation }}</p>
+         <div class="text-center">
+            <img class="imagePrestation m-4" src="{{ asset('build/images/'~prestation.picture) }}" alt="">
+         </div>
+        {{ prestation.prestation| raw }}
     {% endfor %}
+    </div>
 </section>
 {% endblock %}

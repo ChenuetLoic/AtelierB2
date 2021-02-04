@@ -7,3 +7,6 @@ vich_uploader:
         picture_file:
             uri_prefix: /images/picture
             upload_destination: '%upload_directory_picture%'
+        about_file:
+            uri_prefix: /images/about
+            upload_destination: '%upload_directory_about%'
