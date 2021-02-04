@@ -2,10 +2,8 @@
 
 namespace App\Controller;
 
-use App\Entity\HomePicture;
 use App\Entity\Picture;
 use App\Repository\CarouselRepository;
-use App\Repository\HomePictureRepository;
 use App\Repository\PictureRepository;
 use App\Repository\ProjectRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
