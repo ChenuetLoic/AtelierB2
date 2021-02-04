@@ -6,6 +6,8 @@ use App\Entity\Project;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichFileType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class ProjectType extends AbstractType
 {
@@ -15,6 +17,12 @@ class ProjectType extends AbstractType
             ->add('title')
             ->add('date')
             ->add('description')
+            ->add('pathFile', VichFileType::class, [
+                'required' => false,
+                'allow_delete' => true, // not mandatory, default is true
+                'download_uri' => true, // not mandatory, default is true
+                'label' => 'Image à télécharger'
+            ])
         ;
     }
 

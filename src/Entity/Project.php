@@ -3,12 +3,19 @@
 namespace App\Entity;
 
 use App\Repository\ProjectRepository;
+use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass=ProjectRepository::class)
+ * @Vich\Uploadable
  */
 class Project
 {
@@ -40,6 +47,51 @@ class Project
      * @ORM\OneToMany(targetEntity=Picture::class, mappedBy="project")
      */
     private Collection $pictures;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private ?string $pathHome = '';
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     * @Assert\Type("DateTime")
+     */
+    private ?\DateTimeInterface $updatedAt;
+
+    /**
+     * @Vich\UploadableField(mapping="path_file", fileNameProperty="pathHome")
+     * @var File|null
+     * @Assert\File(
+     *     maxSize="1000000",
+     *     mimeTypes = {"image/png", "image/jpeg", "image/jpg", "image/gif", "image/webp"})
+     */
+    private ?File $pathFile = null;
+
+    public function setPathFile(?File $image = null): Project
+    {
+        $this->pathFile = $image;
+        if ($image) {
+            $this->updatedAt = new DateTime('now');
+        }
+        return $this;
+    }
+
+    public function getPathFile(): ?File
+    {
+        return $this->pathFile;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(?\DateTimeInterface $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
 
     public function __construct()
     {
@@ -113,6 +165,18 @@ class Project
                 $picture->setProject(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getPathHome(): ?string
+    {
+        return $this->pathHome;
+    }
+
+    public function setPathHome(?string $pathHome): self
+    {
+        $this->pathHome = $pathHome;
 
         return $this;
     }

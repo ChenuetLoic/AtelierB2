@@ -10,7 +10,7 @@ body {
 }
 
 h1 {
-    padding: $spacing-4 0;
+    padding: $spacing-5 0 0 0;
     font-size: $h1-font-size;
 }
 
@@ -29,6 +29,25 @@ h4 {
 
 .imageCarousel{
     object-fit: cover;
+    filter: brightness(60%);
+}
+
+.imageCarouselProjet {
+    height: 20vh;
+
+
+}
+
+.imageProjet {
+    border-radius: $border-radius;
+    filter: brightness(60%);
+    width: 40vw;
+    margin: $spacing;
+}
+
+.paragraph {
+    font-size: $text-font-size*1.25;
+    font-family: $font-title;
 }
 
 .custom-file-input ~ .custom-file-label:lang(fr)::after {
