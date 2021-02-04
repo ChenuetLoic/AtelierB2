@@ -3,19 +3,36 @@
 {% block title %}Portfolio{% endblock %}
 {% block body %}
 <section class="bg-primary">
+{#    <h1 class="text-center">Projets</h1>#}
+{#    <div class="container-fluid">#}
+{#        <div class="row pb-5 justify-content-between">#}
+{#            {% for projet in projets %}#}
+{#                <a href="{{ path('picture_show', {'id' : projet.id}) }}" target="_blank">#}
+{#                    <div class="link card text-white card-inverse m-4">#}
+{#                        <img src="{{ asset('build/images/'~projet.pathHome) }}"#}
+{#                             class="imagePortfolio card-img" alt="{{ projet.pathHome }}">#}
+{#                        <div class="textOver card-img-overlay d-flex">#}
+{#                            <h2 class="h4 card-title text-truncate align-self-center mx-auto">{{ projet.title}}</h2>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </a>#}
+{#            {% endfor %}#}
+{#        </div>#}
+{#    </div>#}
+{#</section>#}
+
     <h1 class="text-center">Projets</h1>
     <div class="container-fluid">
-        <div class="row pb-5 justify-content-between">
+        <div class="row pb-5 justify-content-between ">
             {% for projet in projets %}
-                <a href="{{ path('picture_show', {'id' : projet.id}) }}" target="_blank">
-                    <div class="link card text-white card-inverse m-4">
-                        <img src="{{ asset('build/images/'~projet.pathHome) }}"
-                             class="imagePortfolio card-img" alt="{{ projet.pathHome }}">
-                        <div class="textOver card-img-overlay d-flex">
-                            <h2 class="h4 card-title text-truncate align-self-center mx-auto">{{ projet.title}}</h2>
-                        </div>
+                <div class="hovereffect m-4">
+                    <img class="imagePortfolio img-responsive " src="{{ asset('build/images/'~projet.pathHome) }}"
+                         alt="{{ projet.pathHome }}">
+                    <div class="overlay">
+                        <h2>{{ projet.title}}</h2>
+                        <a class="info" href="{{ path('picture_show', {'id' : projet.id}) }}">Voir le projet</a>
                     </div>
-                </a>
+                </div>
             {% endfor %}
         </div>
     </div>
