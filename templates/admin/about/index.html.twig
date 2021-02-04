@@ -5,10 +5,10 @@
 {% block title %}Administration|A propos{% endblock %}
 
 {% block body %}
-    <h1 class="title text-center">Administration a propos</h1>
+    <h1 class="title text-center">À propos</h1>
 <div class="container">
     <a class="btn btn-success mb-2" href="{{ path('about_new') }}">Ajouter un nouveau texte</a>
-    <table class="table text-dark text-center">
+    <table class="table text-dark text-center table-responsive-lg">
         <thead class="bg-primary">
             <tr>
                 <th>Images</th>
@@ -19,7 +19,7 @@
         <tbody>
         {% for about in abouts %}
             <tr>
-                <td> <img class="idImage" src="{{ asset('build/images/' ~ about.picture) }}"
+                <td> <img class="idImage" src="{{ asset('uploads/about/' ~ about.picture) }}"
                           alt="{{ about.picture }}" title="{{ about.picture }}"></td>
                 <td>{{ about.description }}</td>
                 <td>

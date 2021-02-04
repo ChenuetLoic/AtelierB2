@@ -1,9 +1,9 @@
 {% block navBar %}
     <nav class="navbar navbar-expand-xl navbar-dark bg-info fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand d-none d-lg-block text-primary" href="{{ path('home') }}"><img class="logo mr-2"
-                                                                                                    src="{{ asset('build/images/logo.jpg') }}"
-                                                                                                    alt="Logo"/>Atelier B2 Adeline Bellot</a>
+            <a class="navbar-brand d-none d-lg-block text-primary" href="{{ path('home') }}"><img
+                        class="logo mr-2" src="{{ asset('build/images/logo.png') }}"
+                        alt="Logo"/>Architectes Atelier B2 Adeline Bellot</a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                     aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,6 +27,11 @@
                         <li class="nav-item mx-3">
                             <a class="lead nav-link text-primary" href="{{ path('admin_index') }}">
                                 Administration</a>
+                        </li>
+                    {% endif %}
+                    {% if app.user %}
+                        <li class="nav-item mx-3">
+                            <a class="lead nav-link text-primary mx-3" href="{{ path('app_logout') }}"> Se déconnecter</a>
                         </li>
                     {% endif %}
                 </ul>

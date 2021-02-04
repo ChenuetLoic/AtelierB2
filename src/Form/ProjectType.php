@@ -34,7 +34,7 @@ class ProjectType extends AbstractType
                     'placeholder' => 'Votre texte',
                 ],
             ])
-            ->add('pathFile', VichFileType::class, [
+            ->add('projetFile', VichFileType::class, [
                 'required' => false,
                 'allow_delete' => true, // not mandatory, default is true
                 'download_uri' => true, // not mandatory, default is true

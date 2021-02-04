@@ -6,10 +6,10 @@
 
 {% block body %}
     <div class="container">
-        <h1 class="title text-center">Modification des Projets</h1>
+        <h1 class="title text-center">Modification du projets</h1>
         {{ include('admin/projets/_form.html.twig', {'button_label': 'Enregistrer'}) }}
     </div>
     <div class="text-center">
-        <a class="btn btn-secondary btn" href="{{ path('projets_index') }}">Retour</a>
+        <a class="btn btn-secondary btn mb-4" href="{{ path('projets_index') }}">Retour</a>
     </div>
 {% endblock %}

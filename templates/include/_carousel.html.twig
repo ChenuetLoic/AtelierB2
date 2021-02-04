@@ -1,17 +1,12 @@
 <section id="carousel-images" class="carousel slide pb-0" data-ride="carousel">
-    <ol class="carousel-indicators">
-        <li data-target="#carousel-images" data-slide-to="0" class="active"></li>
-        <li data-target="#carousel-images" data-slide-to="1"></li>
-        <li data-target="#carousel-images" data-slide-to="2"></li>
-    </ol>
     <div class="carousel-inner">
         {% set picture = "" %}
         {% for picture in pictures %}
             <div class="carousel-item  {% if loop.index0 == 0 %} active {% endif %}">
                 <div class="carousel-caption">
-                    <h1 class="text-light">Atelier B2 Adeline Bellot</h1>
+                    <h1 class="text-light pb-5">Architectes d'intérieure Adeline Bellot</h1>
                 </div>
-                <img class="imageCarousel vh-100 w-100" src="{{ asset('build/images/'~picture.path) }}"
+                <img class="imageCarousel vh-100 w-100" src="{{ asset('uploads/path/'~picture.path) }}"
                      alt="{{ picture.path }}">
             </div>
         {% endfor %}

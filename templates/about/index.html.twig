@@ -3,7 +3,7 @@
 {% block title %}Portfolio{% endblock %}
 {% block body %}
     <section class="bg-primary ">
-        <h1 class="text-center">ADELINE BELLOT</h1>
+        <h1 class="text-center">Architectes d'intérieure Adeline Bellot</h1>
         <div class="container-fluid">
             <div class="row justify-content-around">
                 {% for about in abouts %}
@@ -16,13 +16,13 @@
                     <div class=" justify-content-center justify-content-center
                         col-lg-8 col-sm-6 d-flex align-items-center lead flex-column">
                         <div>
-                            <h2>Ma philosophie de travail</h2>
+                            <h2>Présidente de l'Atelier B2</h2>
                             <p>{{ about.description| raw }}</p>
                         </div>
                     </div>
                 {% endfor %}
             </div>
-
+        <h2 class="text-center">Prendre contact</h2>
         <div class="row justify-content-center">
             <div class="col-sm-6 col-md-6 col-lg-5">
                 {{ form_start(form) }}

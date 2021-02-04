@@ -15,10 +15,10 @@
 
     <div class="row justify-content-around py-4">
         {% for projet in projets %}
-        <div class="col-lg-4 col-sm-4 align-self-center text-center">
-            <img class="imageProjet" src="{{ asset('uploads/path/'~projet.pathHome) }}" alt="">
+        <div class="col-xl-4 text-center">
+            <img class="imageProjet" src="{{ asset('uploads/projet/'~projet.pathHome) }}" alt="">
         </div>
-            <div class="col-xl-5 col-sm-6  align-self-center flex-column">
+            <div class="textCentrer col-xl-5 align-self-center flex-column">
                 <p class="lead">{{ projet.date|format_datetime('full', 'none' , locale='fr')}}</p>
                 <h2>{{ projet.title }}</h2>
                 <p class="paragraph">{{ projet.descriptionHome }}</p>

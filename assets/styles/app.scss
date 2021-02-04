@@ -41,12 +41,9 @@ p {
     filter: brightness(60%);
 }
 
-.imageCarouselProjet {
-    height: 20vh;
-}
-
 .imagePrestation {
     height: 50vh;
+    border-radius: $border-radius;
 }
 
 .imagePortfolio {
@@ -58,7 +55,7 @@ p {
 .imageProjet {
     border-radius: $border-radius;
     filter: brightness(60%);
-    max-width: 40vw;
+    max-height: 500px;
     margin: $spacing;
 }
 
@@ -165,4 +162,45 @@ hr {
 
 .confirmEmail {
     padding-top: $spacing-5;
+}
+
+.sectionResponsive {
+    display: none;
+}
+
+@media screen and (max-width: 1150px)  {
+    .imageProjet {
+        border-radius: $border-radius;
+        filter: brightness(60%);
+        max-height: 200px;
+        margin: $spacing;
+    }
+
+    .textCentrer {
+        text-align: center;
+    }
+
+    .sectionHover {
+        display: none;
+    }
+
+    .sectionResponsive {
+        display: inline-block;
+    }
+
+    .imagePortfolio {
+        max-width: 90vw;
+        filter: brightness(60%);
+        border-radius: $border-radius;
+    }
+
+    .imagePrestation {
+        max-width: 80vw;
+        border-radius: $border-radius;
+        height: auto;
+    }
+
+    .titrePrestation{
+        font-size: $h2-font-size;
+    }
 }
