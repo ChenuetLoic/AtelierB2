@@ -28,5 +28,26 @@
             </div>
         {% endfor %}
     </div>
+    <section class="homeContact">
+        <h2 class="text-center">Contact</h2>
+        <div class="container-fluid">
+            <div class="row d-flex justify-content-center">
+                <div class="col-sm-6 col-md-6 col-lg-5 text-center align-self-center">
+                    <p class="paragraph text-secondary align-self-end mx-auto">
+                        Adeline Bellot<br>
+                        06 63 69 61 24 <br>
+                        23, Rue du Mai 75 002 PARIS</p>
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-5 m-2 ">
+                    {{ form_start(form) }}
+                    {{ form_widget(form) }}
+                    <div class="text-center">
+                        <button class="btn btn-light mt-2 mb-5">Envoyer</button>
+                    </div>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
 {% endblock %}
