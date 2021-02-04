@@ -59,31 +59,31 @@ class Project
     private ?\DateTimeInterface $updatedAt;
 
     /**
-     * @Vich\UploadableField(mapping="path_file", fileNameProperty="pathHome")
+     * @Vich\UploadableField(mapping="projet_file", fileNameProperty="pathHome")
      * @var File|null
      * @Assert\File(
      *     maxSize="1000000",
      *     mimeTypes = {"image/png", "image/jpeg", "image/jpg", "image/gif", "image/webp"})
      */
-    private ?File $pathFile = null;
+    private ?File $projetFile = null;
 
     /**
      * @ORM\Column(type="text")
      */
     private ?string $descriptionHome;
 
-    public function setPathFile(?File $image = null): Project
+    public function setProjetFile(?File $image = null): Project
     {
-        $this->pathFile = $image;
+        $this->projetFile = $image;
         if ($image) {
             $this->updatedAt = new DateTime('now');
         }
         return $this;
     }
 
-    public function getPathFile(): ?File
+    public function getProjetFile(): ?File
     {
-        return $this->pathFile;
+        return $this->projetFile;
     }
 
     public function getUpdatedAt(): ?\DateTimeInterface

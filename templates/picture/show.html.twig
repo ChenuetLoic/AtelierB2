@@ -7,19 +7,16 @@
 
 {% block body %}
 <section class="bg-primary mb-0">
-    <h1 class="text-center mb-4">{{ projects.title }}</h1>
-        <div class="container pt-0">
             <section id="carousel-images" class="carousel slide pb-0" data-ride="carousel">
-                <ol class="carousel-indicators">
-                    <li data-target="#carousel-images" data-slide-to="0" class="active"></li>
-                    <li data-target="#carousel-images" data-slide-to="1"></li>
-                    <li data-target="#carousel-images" data-slide-to="2"></li>
-                </ol>
                 <div class="carousel-inner">
                     {% set picture = "" %}
                     {% for picture in pictures %}
                         <div class="carousel-item  {% if loop.index0 == 0 %} active {% endif %}">
-                            <img class="imageCarouselProjet vh-100 w-100" src="{{ asset('build/images/'~picture.path) }}"
+                            <div class="carousel-caption">
+                                <h1 class="text-light pb-5">{{ projects.title }}</h1>
+                            </div>
+                            <img class="imageCarousel vh-100 w-100"
+                                 src="{{ asset('uploads/path/'~picture.path) }}"
                                  alt="{{ picture.path }}">
                         </div>
                     {% endfor %}
@@ -33,10 +30,10 @@
                     <span class="sr-only">Suivant</span>
                 </a>
             </section>
-        </div>
+
         <div class="container mt-5 pb-5">
             <div class="row flex-row">
-                <p class="lead">{{ projects.date|format_datetime('full', 'none' , locale='fr')}}</p>
+                <p class="lead p-5">{{ projects.date|format_datetime('full', 'none' , locale='fr')}}</p>
                 <p class="paragraph mb-0">{{ projects.description| raw  }}</p>
             </div>
         </div>

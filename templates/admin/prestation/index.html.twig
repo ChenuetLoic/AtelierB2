@@ -5,10 +5,10 @@
 {% block title %}Administration|Prestation{% endblock %}
 
 {% block body %}
-    <h1 class="title text-center">Administration Prestation</h1>
+    <h1 class="title text-center">Prestation</h1>
     <div class="container-fluid">
         <a class="btn btn-success mb-2" href="{{ path('prestation_new') }}">Ajouter une prestation</a>
-        <table class="table text-dark text-center">
+        <table class="table text-dark text-center table-responsive-lg">
             <thead class="bg-primary">
                 <tr>
                     <th>Picture</th>
@@ -20,7 +20,7 @@
             {% for prestation in prestations %}
                 <tr>
                     <td>
-                        <img class="idImage" src="{{ asset('build/images/' ~ prestation.picture) }}"
+                        <img class="idImage" src="{{ asset('uploads/picture/' ~ prestation.picture) }}"
                              alt="{{ prestation.picture }}" title="{{ prestation.picture }}">
                     </td>
                     <td>{{ prestation.prestation }}</td>

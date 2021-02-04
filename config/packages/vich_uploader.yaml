@@ -10,3 +10,6 @@ vich_uploader:
         about_file:
             uri_prefix: /images/about
             upload_destination: '%upload_directory_about%'
+        projet_file:
+            uri_prefix: /images/projet
+            upload_destination: '%upload_directory_projet%'

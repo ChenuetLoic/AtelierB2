@@ -5,10 +5,10 @@
 {% block title %}Administration|Image{% endblock %}
 
 {% block body %}
-    <h1 class="title text-center">Administration image de projet</h1>
+    <h1 class="title text-center">Image de projet</h1>
 <div class="container">
     <a class="btn btn-success mb-2" href="{{ path('picture_new') }}">Ajouter une nouvelle photo</a>
-    <table class="table text-dark text-center">
+    <table class="table text-dark text-center table-responsive-lg">
         <thead class="bg-primary">
             <tr>
                 <th>Projet</th>
@@ -21,7 +21,7 @@
             <tr>
                 <td>{{ picture.project.title }}</td>
                 <td>
-                    <img class="idImage" src="{{ asset('build/images/' ~ picture.path) }}"
+                    <img class="idImage" src="{{ asset('uploads/path/' ~ picture.path) }}"
                          alt="{{ picture.path }}" title="{{ picture.path }}">
                 </td>
                 <td>
