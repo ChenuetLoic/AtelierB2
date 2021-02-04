@@ -4,7 +4,7 @@
         {% for picture in pictures %}
             <div class="carousel-item  {% if loop.index0 == 0 %} active {% endif %}">
                 <div class="carousel-caption">
-                    <h1 class="text-light pb-5">Architectes d'intérieure Adeline Bellot</h1>
+                    <h1 class="titrePrestation text-light pb-5">Architectes d'intérieure Adeline Bellot</h1>
                 </div>
                 <img class="imageCarousel vh-100 w-100" src="{{ asset('uploads/path/'~picture.path) }}"
                      alt="{{ picture.path }}">
