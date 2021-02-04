@@ -34,8 +34,11 @@ h4 {
 
 .imageCarouselProjet {
     height: 20vh;
+}
 
-
+.imagePortfolio {
+    max-width: 30vw;
+    filter: brightness(60%);
 }
 
 .imageProjet {
@@ -69,3 +72,20 @@ hr {
     border: none;
     border-bottom: 1px solid $light;
 }
+
+.link {
+    transition: 0.3s;
+    background: $primary;
+    border: 0;
+}
+
+.link:hover {
+    transition: 0.3s;
+    box-shadow: $box-shadow-card;
+}
+
+.imageBack {
+    border: 0;
+    padding: 0 !important;
+}
+
