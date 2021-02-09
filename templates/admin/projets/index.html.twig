@@ -16,7 +16,7 @@
                     <th class="valign">Titre</th>
                     <th>Images de la page d'accueil</th>
                     <th>Dates</th>
-                    <th>Description</th>
+                    <th>Vue</th>
                     <th>Description accueil</th>
                     <th>Actions</th>
                 </tr>
@@ -30,8 +30,8 @@
                              alt="{{ project.pathHome }}" title="{{ project.pathHome }}">
                     </td>
                     <td>{{ project.date ? project.date|format_datetime('full', 'none' , locale='fr') : '' }}</td>
+                    <td>{{ project.view }}</td>
                     <td>{{ project.descriptionHome }}</td>
-                    <td>{{ project.description| raw  }}</td>
                     <td>
                         <a class="btn btn-secondary btn mt-2"
                            href="{{ path('projets_edit', {'id': project.id}) }}">Modifier</a>

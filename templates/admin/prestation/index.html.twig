@@ -23,7 +23,7 @@
                         <img class="idImage" src="{{ asset('uploads/picture/' ~ prestation.picture) }}"
                              alt="{{ prestation.picture }}" title="{{ prestation.picture }}">
                     </td>
-                    <td>{{ prestation.prestation }}</td>
+                    <td>{{ prestation.prestation| raw }}</td>
                     <td>
                         <a class="btn btn-secondary btn mt-2"
                            href="{{ path('prestation_edit', {'id': prestation.id}) }}">Modifier</a>
