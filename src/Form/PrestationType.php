@@ -18,7 +18,7 @@ class PrestationType extends AbstractType
     {
         $builder
             ->add('prestation', CKEditorType::class, [
-                'label' => 'Texte',
+                'label' => 'Première prestation',
                 'attr' => [
                     'placeholder' => 'Votre texte',
                 ],
@@ -27,7 +27,19 @@ class PrestationType extends AbstractType
                 'required' => false,
                 'allow_delete' => true, // not mandatory, default is true
                 'download_uri' => true, // not mandatory, default is true
-                'label' => 'Image à télécharger'
+                'label' => 'Image à télécharger (milieu de page)'
+            ])
+            ->add('secondPrestation', CKEditorType::class, [
+                'label' => 'Seconde prestation',
+                'attr' => [
+                    'placeholder' => 'Votre texte',
+                ],
+            ])
+            ->add('secondePictureFile', VichFileType::class, [
+                'required' => false,
+                'allow_delete' => true, // not mandatory, default is true
+                'download_uri' => true, // not mandatory, default is true
+                'label' => 'Image à télécharger (bas de page)'
             ])
         ;
     }

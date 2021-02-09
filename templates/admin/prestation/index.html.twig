@@ -5,25 +5,32 @@
 {% block title %}Administration|Prestation{% endblock %}
 
 {% block body %}
-    <h1 class="title text-center">Prestation</h1>
+    <h1 class="titrePrestation text-center">Prestation</h1>
     <div class="container-fluid">
         <a class="btn btn-success mb-2" href="{{ path('prestation_new') }}">Ajouter une prestation</a>
         <table class="table text-dark text-center table-responsive-lg">
             <thead class="bg-primary">
                 <tr>
-                    <th>Picture</th>
                     <th>Prestation</th>
+                    <th>Image</th>
+                    <th>Prestation</th>
+                    <th>Seconde image</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
             {% for prestation in prestations %}
                 <tr>
+                    <td>{{ prestation.prestation| raw }}</td>
                     <td>
                         <img class="idImage" src="{{ asset('uploads/picture/' ~ prestation.picture) }}"
                              alt="{{ prestation.picture }}" title="{{ prestation.picture }}">
                     </td>
-                    <td>{{ prestation.prestation| raw }}</td>
+                    <td>{{ prestation.secondPrestation| raw }}</td>
+                    <td>
+                        <img class="idImage" src="{{ asset('uploads/picture/' ~ prestation.secondePicture) }}"
+                             alt="{{ prestation.secondePicture }}" title="{{ prestation.secondePicture }}">
+                    </td>
                     <td>
                         <a class="btn btn-secondary btn mt-2"
                            href="{{ path('prestation_edit', {'id': prestation.id}) }}">Modifier</a>
