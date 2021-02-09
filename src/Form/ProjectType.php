@@ -4,6 +4,8 @@ namespace App\Form;
 
 use App\Entity\Project;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\ChoiceList\ChoiceList;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -40,6 +42,13 @@ class ProjectType extends AbstractType
                 'download_uri' => true, // not mandatory, default is true
                 'label' => 'Image à télécharger'
             ])
+            ->add('view', ChoiceType::class, [
+                'label' => 'Choisir si souhaitez faire apparaitre ce projet sur la page d\'accueil',
+                'choices' => [
+                    '' => '',
+                    'Oui' => 'vue',
+                    'Non' => 'pas vue',
+                ]])
         ;
     }
 

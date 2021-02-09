@@ -51,7 +51,7 @@ class HomeController extends AbstractController
         return $this->render('home/index.html.twig', [
             'form' => $form->createView(),
             'pictures' => $carouselRepository->findAll(),
-            'projets' => $projectRepository->findBy([],[],5,0),
+            'projets' => $projectRepository->findBy(['view' => "vue"]),
         ]);
     }
 

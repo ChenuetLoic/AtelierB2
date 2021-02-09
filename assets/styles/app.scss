@@ -42,12 +42,13 @@ p {
 }
 
 .imagePrestation {
-    height: 50vh;
+    width: 30vw;
     border-radius: $border-radius;
 }
 
 .imagePortfolio {
-    max-width: 20vw;
+    height: 15vw;
+    width: 20vw;
     filter: brightness(60%);
     border-radius: $border-radius;
 }
@@ -189,7 +190,8 @@ hr {
     }
 
     .imagePortfolio {
-        max-width: 90vw;
+        width: 85vw;
+        height: 25vh;
         filter: brightness(60%);
         border-radius: $border-radius;
     }

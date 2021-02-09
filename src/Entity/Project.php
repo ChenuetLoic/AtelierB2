@@ -72,6 +72,12 @@ class Project
      */
     private ?string $descriptionHome;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private ?string $view;
+
+
     public function setProjetFile(?File $image = null): Project
     {
         $this->projetFile = $image;
@@ -194,6 +200,18 @@ class Project
     public function setDescriptionHome(?string $descriptionHome): self
     {
         $this->descriptionHome = $descriptionHome;
+
+        return $this;
+    }
+
+    public function getView(): ?string
+    {
+        return $this->view;
+    }
+
+    public function setView(string $view): self
+    {
+        $this->view = $view;
 
         return $this;
     }
