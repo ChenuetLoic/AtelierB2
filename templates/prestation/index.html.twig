@@ -18,5 +18,20 @@
             {% endfor %}
          </div>
     </div>
+    <div class="container">
+        {% for prestation in prestations %}
+            <div>
+                {{ prestation.secondPrestation| raw }}
+            </div>
+        {% endfor %}
+    </div>
+    <div class="container-fluid">
+        <div class="d-flex justify-content-around">
+            {% for prestation in prestations %}
+                <img class="imagePrestation m-4" src="{{ asset('uploads/picture/'~prestation.secondePicture) }}"
+                     alt="{{ prestation.secondePicture }}" title="{{ prestation.secondePicture }}">
+            {% endfor %}
+        </div>
+    </div>
 </section>
 {% endblock %}

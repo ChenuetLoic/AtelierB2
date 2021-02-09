@@ -43,9 +43,8 @@ class ProjectType extends AbstractType
                 'label' => 'Image à télécharger'
             ])
             ->add('view', ChoiceType::class, [
-                'label' => 'Choisir si souhaitez faire apparaitre ce projet sur la page d\'accueil',
+                'label' => 'Choisissez si vous souhaitez faire apparaitre ce projet sur la page d\'accueil',
                 'choices' => [
-                    '' => '',
                     'Oui' => 'vue',
                     'Non' => 'pas vue',
                 ]])

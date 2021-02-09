@@ -49,6 +49,50 @@ class Prestation
      */
     private ?File $pictureFile = null;
 
+    /**
+     * @ORM\Column(type="text")
+     */
+    private ?string $secondPrestation;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private ?string $secondePicture = '';
+
+    public function getSecondePicture(): ?string
+    {
+        return $this->secondePicture;
+    }
+
+    public function setSecondePicture(?string $secondePicture): void
+    {
+        $this->secondePicture = $secondePicture;
+    }
+
+    /**
+     * @Vich\UploadableField(mapping="picture_file", fileNameProperty="secondePicture")
+     * @var File|null
+     * @Assert\File(
+     *     maxSize="1000000",
+     *     mimeTypes = {"image/png", "image/jpeg", "image/jpg", "image/gif", "image/webp"})
+     */
+    private ?File $secondePictureFile = null;
+
+
+    public function setSecondePictureFile(?File $image = null): Prestation
+    {
+        $this->secondePictureFile = $image;
+        if ($image) {
+            $this->updatedAt = new DateTime('now');
+        }
+        return $this;
+    }
+
+    public function getSecondePictureFile(): ?File
+    {
+        return $this->secondePictureFile;
+    }
+
     public function setPictureFile(?File $image = null): Prestation
     {
         $this->pictureFile = $image;
@@ -103,4 +147,17 @@ class Prestation
 
         return $this;
     }
+
+    public function getSecondPrestation(): ?string
+    {
+        return $this->secondPrestation;
+    }
+
+    public function setSecondPrestation(string $secondPrestation): self
+    {
+        $this->secondPrestation = $secondPrestation;
+
+        return $this;
+    }
+
 }
